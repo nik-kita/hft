@@ -1,0 +1,10 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "tasks": {
+    "dev": "deno run -A --unstable main.ts --watch"
+  },
+  "imports": {
+    "@deno": "../deps.ts"
+  }
+}

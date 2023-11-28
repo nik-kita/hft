@@ -1,0 +1,1 @@
+alias deno='deno --unstable-workspaces'
