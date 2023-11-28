@@ -10,7 +10,8 @@
   },
   "nodeModulesDir": true,
   "imports": {
-    "@deno": "./deps.ts"
+    "@deno": "./deps.ts",
+    "xstate": "npm:xstate"
   },
   "exclude": [
     "**/_fresh/*",
