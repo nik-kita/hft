@@ -28,4 +28,4 @@ export const {
   setCookie: mock,
 };
 export { type Context, Hono } from "hono";
-export type { OAuth2Client } from 'google-auth-library'; 
+export { OAuth2Client } from 'google-auth-library'; 
