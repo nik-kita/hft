@@ -5,6 +5,7 @@
     "dev": "deno run -A --unstable main.ts --watch"
   },
   "imports": {
-    "@deno": "../deps.ts"
+    "@deno": "../deps.ts",
+    "google-auth-library": "npm:google-auth-library"
   }
 }

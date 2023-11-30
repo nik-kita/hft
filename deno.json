@@ -11,7 +11,8 @@
   "nodeModulesDir": true,
   "imports": {
     "@deno": "./deps.ts",
-    "xstate": "npm:xstate"
+    "xstate": "npm:xstate",
+    "google-auth-library": "npm:google-auth-library"
   },
   "exclude": [
     "**/_fresh/*",
