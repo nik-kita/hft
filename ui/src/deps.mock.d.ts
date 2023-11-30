@@ -17,6 +17,8 @@ export const {
   cors,
   serveStatic,
   load,
+  getCookie,
+  setCookie,
 } = {
   serveStatic: mock as (..._args: unknown[]) => MiddlewareHandler,
   cors: mock as (..._args: unknown[]) => MiddlewareHandler,
