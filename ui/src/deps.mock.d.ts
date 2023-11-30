@@ -1,15 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-types */
-import { MiddlewareHandler } from 'hono';
+import { MiddlewareHandler } from "hono";
 
 declare global {
   class Deno {
     static env: {
-      get: Function,
-    }
+      get: Function;
+    };
   }
 }
-const mock = (..._args: unknown[]) => { return {}; };
+const mock = (..._args: unknown[]) => {
+  return {};
+};
 
 export const {
   cors,
@@ -20,4 +22,4 @@ export const {
   cors: mock as (..._args: unknown[]) => MiddlewareHandler,
   load: mock,
 };
-export { Hono, type Context } from 'hono';
+export { type Context, Hono } from "hono";

@@ -10,12 +10,15 @@
   },
   "nodeModulesDir": true,
   "imports": {
-    "@deno": "./deps.ts"
+    "@deno": "./deps.ts",
+    "xstate": "npm:xstate"
   },
   "exclude": [
     "**/_fresh/*",
     "**/node_modules/*",
-    "**/dist/*",
-    "ui"
-  ]
+    "**/dist/*"
+  ],
+  "lint": {
+    "exclude": ["ui"]
+  }
 }

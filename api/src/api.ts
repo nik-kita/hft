@@ -11,4 +11,7 @@ if (is_dev) {
 export const api = _api
   .get("/welcome", (c: Context) => {
     return c.text("Hello from API!");
+  })
+  .post("/authentication/g-btn", (c: Context) => {
+    return c.text("ok");
   });
