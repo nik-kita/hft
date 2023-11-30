@@ -1,0 +1,24 @@
+{
+  "workspaces": [
+    "api"
+  ],
+  "tasks": {
+    "ui:npm": "cd ui && npm",
+    "ui": "cd ui && npm run",
+    "api": "cd api && deno task dev",
+    "dev": "cd ui && npm run build && cd ../api && deno task dev"
+  },
+  "nodeModulesDir": true,
+  "imports": {
+    "@deno": "./deps.ts",
+    "xstate": "npm:xstate"
+  },
+  "exclude": [
+    "**/_fresh/*",
+    "**/node_modules/*",
+    "**/dist/*"
+  ],
+  "lint": {
+    "exclude": ["ui"]
+  }
+}
