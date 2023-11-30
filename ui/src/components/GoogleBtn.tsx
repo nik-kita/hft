@@ -6,6 +6,8 @@ type Props = {
   // none
 };
 
+const data_login_uri = import.meta.env.BASE_URL + api_client.authentication["g-btn"].$url().href;
+
 const GoogleBtn = forwardRef((_: Props, ref: ForwardedRef<HTMLDivElement>) => {
   return (
     <div ref={ref}>
@@ -18,7 +20,7 @@ const GoogleBtn = forwardRef((_: Props, ref: ForwardedRef<HTMLDivElement>) => {
           data-client_id={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}
           data-context="use"
           data-ux_mode="popup"
-          data-login_uri={api_client.authentication["g-btn"].$url().href}
+          data-login_uri={data_login_uri}
           data-auto_prompt="false"
         >
         </div>
