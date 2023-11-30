@@ -1,4 +1,4 @@
-import { Context, cors, Hono, load } from "@deno";
+import { Context, cors, Hono, load, getCookie } from "@deno";
 
 await load({ export: true });
 const node_env = Deno.env.get("NODE_ENV");
@@ -12,6 +12,7 @@ export const api = _api
   .get("/welcome", (c: Context) => {
     return c.text("Hello from API!");
   })
-  .post("/authentication/g-btn", (c: Context) => {
+  .post("/authentication/google", (c: Context) => {
+    console.log(getCookie(c));
     return c.text("ok");
   });

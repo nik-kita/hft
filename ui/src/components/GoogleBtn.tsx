@@ -6,7 +6,7 @@ type Props = {
   // none
 };
 
-const data_login_uri = import.meta.env.BASE_URL + api_client.authentication["g-btn"].$url().href;
+const data_login_uri = api_client.authentication.google.$url().href;
 
 const GoogleBtn = forwardRef((_: Props, ref: ForwardedRef<HTMLDivElement>) => {
   return (

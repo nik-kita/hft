@@ -21,5 +21,7 @@ export const {
   serveStatic: mock as (..._args: unknown[]) => MiddlewareHandler,
   cors: mock as (..._args: unknown[]) => MiddlewareHandler,
   load: mock,
+  getCookie: mock,
+  setCookie: mock,
 };
 export { type Context, Hono } from "hono";
