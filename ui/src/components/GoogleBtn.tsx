@@ -3,12 +3,10 @@ import { api_client } from "../api_client";
 import { ForwardedRef, forwardRef } from "react";
 
 type Props = {
-  GOOGLE_AUTH_CLIENT_ID: string;
+  // none
 };
 
-const GoogleBtn = forwardRef(({
-  GOOGLE_AUTH_CLIENT_ID,
-}: Props, ref: ForwardedRef<HTMLDivElement>) => {
+const GoogleBtn = forwardRef((_: Props, ref: ForwardedRef<HTMLDivElement>) => {
   return (
     <div ref={ref}>
       <Helmet>
@@ -17,7 +15,7 @@ const GoogleBtn = forwardRef(({
       <div>
         <div
           id="g_id_onload"
-          data-client_id={GOOGLE_AUTH_CLIENT_ID}
+          data-client_id={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}
           data-context="use"
           data-ux_mode="popup"
           data-login_uri={api_client.authentication["g-btn"].$url().href}
