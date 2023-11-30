@@ -1,4 +1,4 @@
-import { Context, cors, getCookie, Hono, OAuth2Client } from "@deno";
+import { Context, cors, Hono, OAuth2Client } from "@deno";
 
 const node_env = Deno.env.get("NODE_ENV");
 const is_dev = node_env && node_env !== "production";
@@ -15,13 +15,16 @@ export const api = _api
     return c.text("Hello from API!");
   })
   .post("/authentication/google", async (c: Context) => {
-    const idToken = getCookie(c).g_csrf_token;
-    const credential = await c.req.formData();
-    console.log(Object.fromEntries(credential));
+    const data = await c.req.parseBody<{
+      credential: string,
+      g_csrf_token: string,
+    }>();
+    console.log(data);
     const ticket = await google_client.verifyIdToken({
-      idToken,
+      idToken: data.credential,
       audience,
     });
+    console.log(ticket);
     const payload = ticket.getPayload();
 
     console.log(payload);
