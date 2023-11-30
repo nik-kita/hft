@@ -16,8 +16,8 @@ export const api = _api
   })
   .post("/authentication/google", async (c: Context) => {
     const idToken = getCookie(c).g_csrf_token;
-    const credential = await c.req.json();
-    console.log(credential);
+    const credential = await c.req.formData();
+    console.log(Object.fromEntries(credential));
     const ticket = await google_client.verifyIdToken({
       idToken,
       audience,
