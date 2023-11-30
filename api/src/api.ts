@@ -1,5 +1,4 @@
-import { Context, cors, getCookie, Hono } from "@deno";
-import { OAuth2Client } from "google-auth-library";
+import { Context, cors, getCookie, Hono, OAuth2Client } from "@deno";
 
 const node_env = Deno.env.get("NODE_ENV");
 const is_dev = node_env && node_env !== "production";
