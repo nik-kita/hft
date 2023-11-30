@@ -16,7 +16,9 @@
   "exclude": [
     "**/_fresh/*",
     "**/node_modules/*",
-    "**/dist/*",
-    "ui"
-  ]
+    "**/dist/*"
+  ],
+  "lint": {
+    "exclude": ["ui"]
+  }
 }

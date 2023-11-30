@@ -2,10 +2,8 @@ import { Hono, serveStatic } from "@deno";
 import { api } from "./src/api.ts";
 
 const root = /api/.test(Deno.cwd()) ? "../ui/dist" : "./ui/dist";
-
-console.log(root);
-
 const app = new Hono();
+
 app.route("/api", api);
 app.use(
   "/*",
