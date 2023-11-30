@@ -25,5 +25,5 @@ export const api = _api
 
     console.log(payload);
 
-    return c.jsonT(payload);
+    return c.json(payload);
   });

@@ -10,7 +10,8 @@ declare global {
   }
 }
 const mock = (..._args: unknown[]) => {
-  return {};
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return {} as any;
 };
 
 export const {
