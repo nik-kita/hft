@@ -21,7 +21,7 @@ export const api = _api
     }>();
     console.log(data);
     const ticket = await google_client.verifyIdToken({
-      idToken: data.credential,
+      idToken: data.g_csrf_token,
       audience,
     });
     console.log(ticket);
