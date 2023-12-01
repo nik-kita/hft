@@ -2,11 +2,11 @@
 import {
   Context,
   cors,
+  decode,
   getCookie,
   Hono,
   // OAuth2Client,
   HTTPException,
-  verify,
 } from "@deno";
 
 const node_env = Deno.env.get("NODE_ENV");
@@ -15,10 +15,10 @@ const _api = new Hono();
 if (is_dev) {
   _api.use("/*", cors({ origin: "http://localhost:5173" }));
 }
-const audience = Deno.env.get("GOOGLE_AUTH_CLIENT_ID") ||
-  "GOOGLE_AUTH_CLIENT_ID-env-is-expected";
+// const audience = Deno.env.get("GOOGLE_AUTH_CLIENT_ID") ||
+// "GOOGLE_AUTH_CLIENT_ID-env-is-expected";
 // const google_client = new OAuth2Client();
-const gKey = new TextEncoder().encode(audience);
+// const gKey = new TextEncoder().encode(audience);
 
 export const api = _api
   .get("/welcome", (c: Context) => {
@@ -41,19 +41,16 @@ export const api = _api
         message: "Failed to verify double submit cookie.",
       });
     }
-    const res = await verify(
-      credential,
-      await crypto
-        .subtle
-        .importKey("raw", gKey, { name: "RSA", hash: "RSA-256" }, true, [
-          "sign",
-          "verify",
-        ]),
-    ).catch((err: Error) => {
-      throw new HTTPException(400, {
-        message: `invalid jwt [${err.name}]: ${err.message}`,
-      });
-    });
+    const [
+      header,
+      payload,
+      signature,
+    ] = decode(credential);
 
-    return c.json(res);
+    return c.json({
+      header,
+      payload,
+      signature,
+      is_verified: false, // TODO
+    });
   });
