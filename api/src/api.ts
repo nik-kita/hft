@@ -21,6 +21,7 @@ export const api = _api
     }>();
     console.log(data);
     console.log(getCookie(c));
+    console.log(audience);
     const ticket = await google_client.verifyIdToken({
       idToken: data.g_csrf_token,
       audience,
