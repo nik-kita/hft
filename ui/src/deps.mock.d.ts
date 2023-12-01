@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/ban-types */
 import { MiddlewareHandler } from "hono";
@@ -10,7 +11,6 @@ declare global {
   }
 }
 const mock = (..._args: unknown[]) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return {} as any;
 };
 
@@ -21,6 +21,7 @@ export const {
   getCookie,
   setCookie,
   decode,
+  verify,
 } = {
   serveStatic: mock as (..._args: unknown[]) => MiddlewareHandler,
   cors: mock as (..._args: unknown[]) => MiddlewareHandler,
@@ -28,7 +29,9 @@ export const {
   getCookie: mock,
   setCookie: mock,
   decode: mock,
+  verify: mock,
 };
+export type VerifyOptions = any;
 export { type Context, Hono } from "hono";
 export { HTTPException } from "hono/http-exception";
 export { OAuth2Client } from "google-auth-library";
