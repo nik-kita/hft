@@ -1,4 +1,4 @@
-import { Context, cors, Hono, OAuth2Client } from "@deno";
+import { Context, cors, getCookie, Hono, OAuth2Client } from "@deno";
 
 const node_env = Deno.env.get("NODE_ENV");
 const is_dev = node_env && node_env !== "production";
@@ -20,6 +20,7 @@ export const api = _api
       g_csrf_token: string,
     }>();
     console.log(data);
+    console.log(getCookie(c));
     const ticket = await google_client.verifyIdToken({
       idToken: data.g_csrf_token,
       audience,
