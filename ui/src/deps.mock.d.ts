@@ -20,12 +20,15 @@ export const {
   load,
   getCookie,
   setCookie,
+  decode,
 } = {
   serveStatic: mock as (..._args: unknown[]) => MiddlewareHandler,
   cors: mock as (..._args: unknown[]) => MiddlewareHandler,
   load: mock,
   getCookie: mock,
   setCookie: mock,
+  decode: mock,
 };
 export { type Context, Hono } from "hono";
-export { OAuth2Client } from 'google-auth-library'; 
+export { HTTPException } from "hono/http-exception";
+export { OAuth2Client } from "google-auth-library";
