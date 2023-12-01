@@ -45,13 +45,13 @@ export const api = _api
       credential,
       await crypto
         .subtle
-        .importKey("raw", gKey, { name: "HMAC", hash: "SHA-256" }, true, [
+        .importKey("raw", gKey, { name: "RSA", hash: "RSA-256" }, true, [
           "sign",
           "verify",
         ]),
     ).catch((err: Error) => {
       throw new HTTPException(400, {
-        message: `invalid jwt: ${err.message}`,
+        message: `invalid jwt [${err.name}]: ${err.message}`,
       });
     });
 
